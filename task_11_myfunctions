@@ -1,0 +1,159 @@
+'''
+
+файл myfunctions.py
+Даны заготовки 8-и функции, предлагается написать для них реализацию
+
+'''
+
+import myfunctions
+
+def hello_world():
+    myfunctions.hello_vorld(doIt = False)
+
+def hello_who():
+    myfunctions.hello_who('World', doIt = False)
+
+def pow_many():
+    xArr = arrayFormer(5)
+    myfunctions.pow_many(2, xArr, doIt = False)
+
+def print_key_val():
+    myfunctions.print_key_val(doIt = False, x0 = 0, x1 = 1, x2 = 2, x3 = 3, x4 = 4, x5 = 'qwerty')
+
+def arrayFormer(nArr):
+    xArr = []
+
+    for i in range(nArr):
+
+        while True:
+            n = input(f'ЦЕЛОЕ >> ')
+            try:
+                xN = int(n)
+                xArr.append(xN)
+                break
+            except ValueError as ve:
+                print(f'{i}...{ve}')
+
+    print(xArr)
+    return xArr
+
+class Employee:
+    def __init__(self, name, age, grade):
+        self.name = name
+        self.age = age
+        self.grade = grade
+
+def main():
+    print('=1========================================================')
+    myfunctions.simple_separator(xstr='*', xnn=7)
+    print('##1##')
+    print('=2========================================================')
+    myfunctions.simple_separator(xstr='*')
+    print('##2##')
+    print('=3========================================================')
+    myfunctions.simple_separator(xnn=15)
+    print('##3##')
+    print('=4========================================================')
+    print(myfunctions.simple_separator() == '**********')
+    print('##4##')
+    print('=5========================================================')
+    myfunctions.simple_separator(xstr=' нет ')
+    print('##5##')
+    print('=6========================================================')
+    myfunctions.simple_separator(xstr=' yes ', xnn=5)
+    print('##6##')
+    print('=7========================================================')
+    print(myfunctions.long_separator(3) == '***')  # True
+    print('##7##')
+    print('=8========================================================')
+    print(myfunctions.long_separator(4) == '****')  # True
+    print('##8##')
+    print('=9========================================================')
+    print(myfunctions.separator('-', 10) == '----------')  # True
+    print('##9##')
+    print('=10=======================================================')
+    print(myfunctions.separator('#', 5) == '#####')  # True
+    print('##10##')
+    print('=11=======================================================')
+    myfunctions.hello_vorld(doIt=True)
+    print('##11##')
+    print('=12=======================================================')
+    myfunctions.hello_who('Jeanne', doIt=True)
+    print('##12##')
+    myfunctions.hello_who(doIt=False)
+    print('##12##')
+    print('=13=======================================================')
+    xArr = arrayFormer(5)
+    res = myfunctions.pow_many(2, xArr, doIt = True)
+    xArr.clear()
+    print(res)
+    print('##13##')
+
+    print(myfunctions.pow_many(2, [1, 2, 3, 4, 5], doIt = False) == 225)
+    print('##13##')
+
+    print('=14=======================================================')
+    myfunctions.print_key_val(doIt = False, one=1, two=2, three=3, four=4, five=5)
+    print('##14##')
+    myfunctions.print_key_val(doIt = False, name='Alex', age='25')
+    print('##14##')
+    myfunctions.print_key_val(doIt = True, animal='Dog', is_animal=True)
+    print('##14##')
+    print('=15=======================================================')
+
+    fun = lambda x: x > 5
+    #
+    xArr.append(arrayFormer(10))
+    xArr.append(fun)
+    xArr.append('f')
+
+    retArray = myfunctions.my_filter(*xArr)  # filter
+
+    print(retArray)
+    xArr.clear()
+    print('##15##')
+
+    animals = ['dog','cat','horse','bull']
+    print(animals)
+    fun = lambda animal: animal == 'cat'
+    xArr.append(animals)
+    xArr.append(fun)
+    xArr.append('f')
+
+    retArray = myfunctions.my_filter(*xArr)  # filter
+    xArr.clear()
+
+    for j in range(len(retArray)):
+        for i in range(len(animals)):
+            if animals[i] == retArray[j]:
+                animals[i] = 'Ненавижу кошек!'
+
+    print(animals)
+    print('##15##')
+
+    Team=[Employee('Alex', 20, 5),
+          Employee('Amanda', 30, 3),
+          Employee('David', 15, 3),
+          Employee('Peter', 25, 10),
+          Employee('Micle', 33, 9),
+          Employee('David', 19, 6)
+          ]
+
+    print([item.name for item in Team])
+
+    fun = lambda x: x.grade
+
+    xArr.append(Team)
+    xArr.append(fun)
+    xArr.append('s')
+
+    retArray = myfunctions.my_filter(*xArr)  # sort
+
+    print([item.name for item in retArray])
+    xArr.clear()
+    print('##15##')
+
+    print('==========================================================')
+
+if __name__ == '__main__':
+    main()
